@@ -122,7 +122,7 @@ class APITestCase(unittest.TestCase):
             url_for('api.new_post'),
             headers=self.get_api_headers('john@example.com', 'cat'),
             data=json.dumps({'body': ''}))
-        self.assertTrue(response.status_code == 404)
+        self.assertTrue(response.status_code == 400)
 
         # write a post
         response = self.client.post(
